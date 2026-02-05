@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pulse — Accueil</title>
+  <link rel="stylesheet" href="styles.css" />
+
+  <!--
+    Note:
+    - J’ai volontairement ajouté du markup + sections + wrappers
+    - Les anciens filtres sont commentés (pour garder des lignes)
+    - Recherche globale centrée, résultats intégrés dans la page
+  -->
+</head>
+
+<body>
+  <!-- HERO FULL (comme ta capture) -->
+  <header class="heroFull">
+    <div class="heroFull__bg" id="heroBg"></div>
+    <div class="heroFull__overlay"></div>
+
+    <!-- Top row: brand left / nav center / sign-in right -->
+    <div class="heroTop">
+      <!-- BRAND (hors topbar) -->
+      <a class="brand" href="index.html" aria-label="Pulse">
+        <span class="brand__logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" class="ico">
+            <path d="M4 4h16v16H4V4zm3 3v10h10V7H7zm2 2h6v6H9V9z"/>
+          </svg>
+        </span>
+        <span class="brand__text">
+          <span class="brand__name">PULSE</span>
+          <span class="brand__small">e-sport arena</span>
+        </span>
+      </a>
+
+      <!-- TOPBAR (glassy / blur) -->
+      <nav class="topbar" aria-label="Navigation principale">
+        <a class="topbar__item is-active" href="index.html">
+          <span class="topbar__icon">
+            <svg viewBox="0 0 24 24" class="ico"><path d="M12 3l9 8h-3v10h-5v-6H11v6H6V11H3l9-8z"/></svg>
+          </span>
+          <span class="topbar__label">Accueil</span>
+        </a>
+
+        <a class="topbar__item" href="pages/tournaments.html">
+          <span class="topbar__icon">
+            <svg viewBox="0 0 24 24" class="ico"><path d="M6 4h12v2H6V4zm2 4h8l1 4H7l1-4zm-2 6h12v2H6v-2zm2 4h8v2H8v-2z"/></svg>
+          </span>
+          <span class="topbar__label">Tournois</span>
+        </a>
+
+        <a class="topbar__item" href="pages/games.html">
+          <span class="topbar__icon">
+            <svg viewBox="0 0 24 24" class="ico"><path d="M7 6h10a4 4 0 014 4v2a4 4 0 01-4 4h-1l-2 2H10l-2-2H7a4 4 0 01-4-4v-2a4 4 0 014-4zm2 5a1 1 0 100 2 1 1 0 000-2zm6 0a1 1 0 100 2 1 1 0 000-2z"/></svg>
+          </span>
+          <span class="topbar__label">Jeux</span>
+        </a>
+
+        <a class="topbar__item" href="pages/matches.html">
+          <span class="topbar__icon">
+            <svg viewBox="0 0 24 24" class="ico"><path d="M7 3h10v2H7V3zm2 6h6v2H9V9zm-2 5h10v2H7v-2zm2 5h6v2H9v-2z"/></svg>
+          </span>
+          <span class="topbar__label">Matchs</span>
+        </a>
+
+        <a class="topbar__item" href="pages/shop.html">
+          <span class="topbar__icon">
+            <svg viewBox="0 0 24 24" class="ico"><path d="M7 18c-1.1 0-2-.9-2-2V6h2v10h12v2H7zM9 6h10v10H9V6zm2 2v6h6V8h-6z"/></svg>
+          </span>
+          <span class="topbar__label">Boutique</span>
+        </a>
+
+        <a class="topbar__item" href="pages/teams.html">
+          <span class="topbar__icon">
+            <svg viewBox="0 0 24 24" class="ico"><path d="M16 11c1.66 0 3-1.34 3-3S17.66 5 16 5s-3 1.34-3 3 1.34 3 3 3zM8 11c1.66 0 3-1.34 3-3S9.66 5 8 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5C15 14.17 10.33 13 8 13zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.95 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+          </span>
+          <span class="topbar__label">Équipe</span>
+        </a>
+      </nav>
+
+      <!-- SIGN IN (hors topbar) -->
+      <div class="heroTop__right">
+        <a class="btn btn--ghost" href="pages/register.html">S'INSCRIRE</a>
+        <button class="signInBtn" id="btnOpenAuth" type="button">
+          <span class="signInBtn__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="ico">
+              <path d="M10 17l1.4-1.4-2.6-2.6H20v-2H8.8l2.6-2.6L10 7l-7 7 7 7zm-6 4h6v-2H4V5h6V3H4a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+            </svg>
+          </span>
+          <span class="signInBtn__text">SIGN IN</span>
+        </button>
+
+        <button class="menuBtn" type="button" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- CENTER TITLE (comme la capture) -->
+    <div class="heroCenter">
+      <div class="heroKicker">VOTRE PLATEFORME E-SPORT</div>
+      <h1 class="heroTitle">PULSE</h1>
+      <div class="heroSub">Créez des équipes, participez aux tournois, suivez les matchs et gagnez des récompenses.</div>
+
+      <div class="heroCtas">
+        <a class="cta cta--green" href="pages/contact.html">CONTACT US</a>
+        <a class="cta cta--glass" href="pages/tournaments.html">VOIR TOURNOIS</a>
+        <a class="cta cta--glass" href="pages/games.html">VOIR JEUX</a>
+        <a class="cta cta--glass" href="pages/shop.html">BOUTIQUE</a>
+      </div>
+
+      <!-- mini widgets glassy (optionnel mais dans le style) -->
+      <div class="heroWidgets">
+        <div class="widget">
+          <div class="widget__value" id="heroStatMatches">3200</div>
+          <div class="widget__label">Matches played</div>
+        </div>
+        <div class="widget">
+          <div class="widget__value" id="heroStatTournaments">235</div>
+          <div class="widget__label">Tournaments held</div>
+        </div>
+        <div class="widget">
+          <div class="widget__value" id="heroStatPlayers">566</div>
+          <div class="widget__label">Players</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- optional diagonal strip -->
+    <div class="heroSlash" aria-hidden="true"></div>
+  </header>
+
+  <!-- CONTENU -->
+  <main class="page">
+    <section class="belowHero">
+
+      <!-- ========================= -->
+      <!-- ANCIENS FILTRES (RETIRÉS) -->
+      <!-- ========================= -->
+      <!--
+      <div class="filters">
+        <div class="select">
+          <label class="srOnly" for="orderBy">Trier</label>
+          <select id="orderBy">
+            <option>Order by: Relevance</option>
+            <option>Order by: Date</option>
+            <option>Order by: Prize pool</option>
+          </select>
+        </div>
+
+        <div class="select">
+          <label class="srOnly" for="platform">Plateforme</label>
+          <select id="platform">
+            <option>All Platforms</option>
+            <option>PC</option>
+            <option>PlayStation</option>
+            <option>Xbox</option>
+          </select>
+        </div>
+
+        <div class="select">
+          <label class="srOnly" for="region">Région</label>
+          <select id="region">
+            <option>Region: All</option>
+            <option>Europe</option>
+            <option>NA</option>
+            <option>MENA</option>
+          </select>
+        </div>
+
+        <div class="search">
+          <svg viewBox="0 0 24 24" class="ico">
+            <path d="M10 2a8 8 0 105.3 14l4.7 4.7 1.4-1.4-4.7-4.7A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+          </svg>
+          <input type="search" placeholder="Search in Tournaments..." />
+        </div>
+      </div>
+      -->
+
+      <!-- ============================ -->
+      <!-- RECHERCHE GLOBALE (CENTRÉE) -->
+      <!-- ============================ -->
+      <section class="globalSearchWrap" aria-label="Recherche globale">
+        <form class="globalSearch" id="globalSearchForm" role="search" autocomplete="off">
+          <span class="globalSearch__icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" class="ico">
+              <path d="M10 2a8 8 0 105.3 14l4.7 4.7 1.4-1.4-4.7-4.7A8 8 0 0010 2zm0 2a6 6 0 110 12 6 6 0 010-12z"/>
+            </svg>
+          </span>
+
+          <input
+            class="globalSearch__input"
+            id="globalSearchInput"
+            type="search"
+            placeholder="Rechercher joueurs, équipes, tournois, matchs, jeux, produits…"
+            aria-label="Rechercher dans toute la plateforme"
+          />
+
+          <button class="globalSearch__btn" id="globalSearchBtn" type="submit">
+            Rechercher
+          </button>
+
+          <button class="globalSearch__clear" id="globalSearchClear" type="button" aria-label="Effacer la recherche">
+            <svg viewBox="0 0 24 24" class="ico">
+              <path d="M18.3 5.7L12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3 1.4 1.4z"/>
+            </svg>
+          </button>
+        </form>
+
+        <div class="globalSearchHint">
+          Astuce : tape au moins <b>2 caractères</b>. Résultats : joueurs, équipes, tournois, matchs, jeux, produits.
+        </div>
+      </section>
+
+      <!-- ===================== -->
+      <!-- RÉSULTATS DE RECHERCHE -->
+      <!-- ===================== -->
+      <section class="section section--search" id="searchResultsSection" hidden>
+        <div class="section__head">
+          <div>
+            <h2>SEARCH RESULTS</h2>
+            <p class="muted" id="searchResultsSub">Résultats multi-types (joueurs, équipes, tournois, matchs, jeux, produits).</p>
+          </div>
+          <div class="section__actions">
+            <button class="btn btn--ghost" id="searchResultsClose" type="button">Fermer</button>
+          </div>
+        </div>
+
+        <div class="searchResultsWrap" id="searchResultsWrap">
+          <!-- injecté par JS -->
+        </div>
+      </section>
+
+      <!-- ===================== -->
+      <!-- THIS WEEK TOURNAMENTS -->
+      <!-- ===================== -->
+      <section class="section">
+        <div class="section__head">
+          <div>
+            <h2>THIS WEEK TOURNAMENTS</h2>
+            <p class="muted">Tournois qui démarrent cette semaine (template front).</p>
+          </div>
+          <div class="section__actions">
+            <button class="btn btn--ghost" type="button" id="weekTournamentsPrev">‹</button>
+            <button class="btn btn--ghost" type="button" id="weekTournamentsNext">›</button>
+            <button class="btn btn--soft" type="button">Voir tout</button>
+          </div>
+        </div>
+
+        <div class="cardsGrid cardsGrid--tournaments" id="weekTournamentsGrid"></div>
+      </section>
+
+      <!-- ===================== -->
+      <!-- THIS WEEK CHAMPIONS   -->
+      <!-- ===================== -->
+      <section class="section">
+        <div class="section__head">
+          <div>
+            <h2>THIS WEEK CHAMPIONS</h2>
+            <p class="muted">Équipes gagnantes des tournois terminés cette semaine (template front).</p>
+          </div>
+          <div class="section__actions">
+            <button class="btn btn--ghost" type="button" id="championsPrev">‹</button>
+            <button class="btn btn--ghost" type="button" id="championsNext">›</button>
+            <button class="btn btn--soft" type="button">Hall of Fame</button>
+          </div>
+        </div>
+
+        <div class="cardsGrid cardsGrid--champions" id="championsGrid"></div>
+      </section>
+
+      <!-- ===================== -->
+      <!-- BEST SELLERS (SHOP)   -->
+      <!-- ===================== -->
+      <section class="section">
+        <div class="section__head">
+          <div>
+            <h2>BEST SELLERS</h2>
+            <p class="muted">Top produits vendus (template front).</p>
+          </div>
+          <div class="section__actions">
+            <button class="btn btn--ghost" type="button" id="bestSellersPrev">‹</button>
+            <button class="btn btn--ghost" type="button" id="bestSellersNext">›</button>
+            <button class="btn btn--soft" type="button">Boutique</button>
+          </div>
+        </div>
+
+        <div class="cardsGrid cardsGrid--products" id="bestSellersGrid"></div>
+      </section>
+
+      <!-- ===================== -->
+      <!-- POPULAR GAMES         -->
+      <!-- ===================== -->
+      <section class="section">
+        <div class="section__head">
+          <div>
+            <h2>POPULAR GAMES</h2>
+            <p class="muted">Jeux populaires par activité (tournois ouverts/en cours).</p>
+          </div>
+          <div class="section__actions">
+            <button class="btn btn--ghost" type="button" id="popularGamesPrev">‹</button>
+            <button class="btn btn--ghost" type="button" id="popularGamesNext">›</button>
+            <button class="btn btn--soft" type="button">Voir jeux</button>
+          </div>
+        </div>
+
+        <div class="cardsGrid cardsGrid--games" id="popularGamesGrid"></div>
+      </section>
+
+      <!-- ===================== -->
+      <!-- BONUS: TOP TEAMS      -->
+      <!-- (cards "team")        -->
+      <!-- ===================== -->
+      <section class="section">
+        <div class="section__head">
+          <div>
+            <h2>TOP TEAMS</h2>
+            <p class="muted">Cartes équipe (template) : roster, région, boutique.</p>
+          </div>
+          <div class="section__actions">
+            <button class="btn btn--ghost" type="button" id="topTeamsPrev">‹</button>
+            <button class="btn btn--ghost" type="button" id="topTeamsNext">›</button>
+            <button class="btn btn--soft" type="button">Voir équipes</button>
+          </div>
+        </div>
+
+        <div class="cardsGrid cardsGrid--teams" id="topTeamsGrid"></div>
+      </section>
+
+      <!-- ===================== -->
+      <!-- BONUS: NEW PLAYERS    -->
+      <!-- (cards "member")      -->
+      <!-- ===================== -->
+      <section class="section">
+        <div class="section__head">
+          <div>
+            <h2>NEW PLAYERS</h2>
+            <p class="muted">Cartes membre (template) : profil, stats, équipes.</p>
+          </div>
+          <div class="section__actions">
+            <button class="btn btn--ghost" type="button" id="newPlayersPrev">‹</button>
+            <button class="btn btn--ghost" type="button" id="newPlayersNext">›</button>
+            <button class="btn btn--soft" type="button">Explorer joueurs</button>
+          </div>
+        </div>
+
+        <div class="cardsGrid cardsGrid--members" id="newPlayersGrid"></div>
+      </section>
+
+      <footer class="footer">
+        <div>© 2026 Pulse — Template</div>
+        <div class="footer__links">
+          <a href="pages/about.html">À propos</a>
+          <a href="pages/contact.html">Contact</a>
+          <a href="pages/faq.html">FAQ</a>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <!-- AUTH MODAL -->
+  <div class="authModal" id="authModal" aria-hidden="true">
+    <div class="authModal__backdrop" data-close="true"></div>
+
+    <div class="authCard" role="dialog" aria-modal="true" aria-label="Connexion">
+      <div class="authCard__head">
+        <div>
+          <div class="authCard__title">Connexion</div>
+          <div class="authCard__sub">Email + mot de passe, puis “mot de passe oublié”.</div>
+        </div>
+        <button class="iconBtn" data-close="true" aria-label="Fermer">
+          <svg viewBox="0 0 24 24" class="ico">
+            <path d="M18.3 5.7L12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3 1.4 1.4z"/>
+          </svg>
+        </button>
+      </div>
+
+      <form class="authForm" id="loginForm">
+        <label class="field">
+          <span class="field__label">Email</span>
+          <input type="email" name="email" placeholder="ex: you@email.com" required />
+        </label>
+
+        <label class="field">
+          <span class="field__label">Mot de passe</span>
+          <input type="password" name="password" placeholder="••••••••" required minlength="6" />
+        </label>
+
+        <button class="btn btn--primary authForm__submit" type="submit">Se connecter</button>
+
+        <div class="authForm__bottom">
+          <a class="authLink" href="#" id="forgotLink">Mot de passe oublié ?</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
